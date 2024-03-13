@@ -7,10 +7,15 @@
  */
 
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h
 
-int main()
-{
-    printf("Halo dunia!\n");
+int main() {
+
+    printf("Masukkan key: ");
+    printf("Masukkan file: ");
+    printf("\n");
+    printf("%s ", ...);
+
     return 0;
 }
+
