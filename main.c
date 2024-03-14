@@ -2,7 +2,7 @@
  *   Modul               : 03
  *   Hari dan Tanggal    : 14/03/2024
  *   Nama (NIM)          : Dennis Hubert(13222018)
- *   Nama File           : main.c
+ *   Nama File           : main.c 
  *   Deskripsi           : decoder
  */
 
