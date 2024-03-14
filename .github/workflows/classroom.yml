@@ -1,0 +1,83 @@
+name: Autograding Tests
+'on':
+- push
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Test 1
+      id: test-1
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: Test 1
+        command: "./main"
+        input: "999935772477771\r\ntxt1.txt"
+        expected-output: 'Masukkan key: Masukkan file: kucing kamu memakan beruang
+          kesayangan'
+        comparison-method: contains
+        timeout: 2
+        max-score: 20
+    - name: Test 2
+      id: test-2
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: Test 2
+        command: "./main"
+        input: "879240895109735\r\ntxt3.txt"
+        expected-output: 'Masukkan key: Masukkan file: dreht sich die Erde immer langsamer'
+        comparison-method: contains
+        timeout: 2
+        max-score: 20
+    - name: Test 3
+      id: test-3
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: Test 3
+        command: "./main"
+        input: "963427895272534\r\ntxt2.txt"
+        expected-output: 'Masukkan key: Masukkan file: bro itu si CEP18 naruh spyware
+          di komputer elu'
+        comparison-method: contains
+        timeout: 2
+        max-score: 20
+    - name: Test 4
+      id: test-4
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: Test 4
+        command: "./main"
+        input: "776420000300014\r\ntxt4.txt"
+        expected-output: 'Masukkan key: Masukkan file: na si go re ng'
+        comparison-method: contains
+        timeout: 2
+        max-score: 20
+    - name: Test 5
+      id: test-5
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: Test 5
+        command: "./main"
+        input: "631547005176325\r\ntxt4.txt"
+        expected-output: 'Masukkan key: Masukkan file: ca pe kk me ndi ng ti dur ygy'
+        comparison-method: contains
+        timeout: 2
+        max-score: 20
+    - name: Autograding Reporter
+      uses: education/autograding-grading-reporter@v1
+      env:
+        TEST-1_RESULTS: "${{steps.test-1.outputs.result}}"
+        TEST-2_RESULTS: "${{steps.test-2.outputs.result}}"
+        TEST-3_RESULTS: "${{steps.test-3.outputs.result}}"
+        TEST-4_RESULTS: "${{steps.test-4.outputs.result}}"
+        TEST-5_RESULTS: "${{steps.test-5.outputs.result}}"
+      with:
+        runners: test-1,test-2,test-3,test-4,test-5
