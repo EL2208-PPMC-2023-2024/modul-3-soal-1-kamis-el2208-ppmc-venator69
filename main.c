@@ -8,10 +8,10 @@
 #include <stdio.h>
 #include <string.h>
 int main(){
-long int code, arrayofinput[3][5],len = 0,i,j; 
+long int code, arrayofinput[3][5],len = 0,i,j=0; 
 
 FILE *test;
-test = fopen("test.txt","r");
+test = fopen("txt1.txt","r");
 char full[3][100];
 //menghapus row dan menjadikan array
 for (i=0;i<3;i++){
@@ -23,9 +23,10 @@ for (i=0;i<3;i++){
 char token[3][5][100];
 for (i=0;i<3;i++){
     char *ptr = strtok(full[i]," ");
-    for (j=0;j<5;j++){
-        token[i][j] = strcpy(*ptr, token[i][j]);
+    while (ptr != NULL && j < 5){
+        strcpy(token[i][j],ptr);
         ptr = strtok(NULL," ");
+        j++;
     }  
     }
 
