@@ -5,6 +5,13 @@
  *   Nama File           : main.c 
  *   Deskripsi           : decoder
  */
+/** EL2208 Praktikum Pemecahan Masalah dengan C 2022/2023
+ *   Modul               : 03
+ *   Hari dan Tanggal    : 14/03/2024
+ *   Nama (NIM)          : Dennis Hubert(13222018) 
+ *   Nama File           : main.c 
+ *   Deskripsi           : decoder
+ */
 #include <stdio.h>
 #include <string.h>
 int main(){
@@ -47,7 +54,7 @@ for (j =0;j<3;j++){
 for (i = 0; i<3 ; i++){
     for (j = 0; j<5;j++){
     if (arrayofinput[i][j] <= 5){
-        printf("%s",token[i][j]);
+        printf("%s ",token[i][j]);
     }
 }
 }
